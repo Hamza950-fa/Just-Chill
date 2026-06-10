@@ -544,22 +544,6 @@ export function getRandomColor() {
 
 export default botConfig;
 
-async function canModerate(botMember, targetMember) {
-    return (
-        botMember.roles.highest.position >
-        targetMember.roles.highest.position
-    );
-}
-
-// Disconnect from voice channel
-if (canModerate(interaction.guild.members.me, targetMember)) {
-    await targetMember.voice.disconnect();
-} else {
-    await interaction.reply({
-        content: "I cannot disconnect this member because their role is equal to or higher than mine.",
-        ephemeral: true
-    });
-}
 
 
 
